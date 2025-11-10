@@ -113,24 +113,8 @@ Anomali tespit edildiğinde aşağıdaki aksiyonlar alınmalıdır:
 ### 5️⃣ Log Örneği
 
 ```
-2025-11-02T21:41:00.000Z | StationID: ST-512 | 
-FirmwareUpdateID: 33-A2 | 
-HASH_Match: False | 
-TIMESTAMP: OutOfWindow | 
-Event: Suspicious firmware update / signature validation failed | 
-Severity: CRITICAL | 
-Action: Update rejected, device entered safe mode
+2025-11-02T21:41 | StationID: ST-512 | FirmwareUpdateID: 33-A2 | HASH_Match: False | TIMESTAMP: OutOfWindow | Event: Suspicious firmware update / signature validation failed.
 ```
-
-**Log Alanları:**
-- `Timestamp`: Olay zamanı
-- `StationID`: Şarj istasyonu kimliği
-- `FirmwareUpdateID`: Firmware güncelleme kimliği
-- `HASH_Match`: Hash doğrulama sonucu
-- `TIMESTAMP`: Zaman damgası durumu
-- `Event`: Olay açıklaması
-- `Severity`: Önem seviyesi
-- `Action`: Alınan aksiyon
 
 ---
 

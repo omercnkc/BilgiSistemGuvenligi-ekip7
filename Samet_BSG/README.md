@@ -23,8 +23,6 @@ Bu proje, **Elektrikli Araç Şarj İstasyonları (EVSE)** ve **Merkezi Şarj Y�
 - ✅ OCPP 2.0/2.0.1 güvenlik mekanizmalarının analizi
 - ✅ PKI/İmza doğrulama zafiyetlerinin tespiti
 - ✅ Firmware manipülasyonu anomali senaryosu
-- ✅ Machine Learning tabanlı anomali tespiti yaklaşımları
-- ✅ Mobil uygulama güvenliği değerlendirmesi
 
 ---
 
@@ -34,7 +32,7 @@ Bu proje, **Elektrikli Araç Şarj İstasyonları (EVSE)** ve **Merkezi Şarj Y�
 |----------|-------------|
 | **Programlama Dilleri** | Kotlin, Python |
 | **Mobil Geliştirme** | Android (Kotlin) |
-| **Machine Learning** | TensorFlow, Scikit-learn, Anomaly Detection |
+| **Machine Learning** | TensorFlow, Scikit-learn |
 | **Güvenlik** | PKI, TLS, TPM, HSM, Blockchain |
 | **Protokoller** | OCPP 2.0.1, ISO 15118 |
 
@@ -100,15 +98,8 @@ Bu senaryoda saldırgan, şarj istasyonunun PKI/doğrulama mekanizmasındaki imz
 ## 🎓 Hakkımda
 
 ### Yetkinlikler
-- 🤖 **Machine Learning**: Anomali tespiti, derin öğrenme, model eğitimi
+- 🤖 **Machine Learning**: Derin öğrenme, veri analizi, model eğitimi
 - 📱 **Mobil Uygulama Geliştirme**: Android (Kotlin), modern UI/UX tasarımı
-- 🔐 **Güvenlik**: Siber güvenlik, protokol analizi, zafiyet tespiti
-
-### İlgi Alanları
-- Elektrikli araç şarj altyapısı güvenliği
-- OCPP protokol analizi ve güvenlik açıkları
-- Machine Learning tabanlı anomali tespiti
-- Mobil uygulama güvenliği
 
 > 📄 **Daha fazla bilgi için:** [Hakkımda.md](./Hakkımda.md)
 
