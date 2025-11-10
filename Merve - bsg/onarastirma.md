@@ -32,6 +32,7 @@ CAN Bus düşük hızda olması,
 
 
 `SWOT`
+
 Bir projenin,kişinin mevcut durumunu  analiz etmek için yapılan bir değerlendirme yöntemidir. İçsel (Strengths, Weaknesses)  ve Dışsal (Opportunities , Threats ) faktörlerden oluşur. İçsel faktörler bizim kontrolümüzde iç dinamik ile ilgili kaynaklar, avantajlar, başarılar; dışsal faktörler ise dış faktörlerdir piyasa, rakipler, çevresel koşullar, teknoloji, ekonomi gibi.
  S : Strengths (Güçlü yönler) 
  W : Weaknesses (Zayıf yönler)
@@ -40,6 +41,7 @@ Bir projenin,kişinin mevcut durumunu  analiz etmek için yapılan bir değerlen
 
 
 `SMART HEDEFLER`
+
 SMART hedefler , projeye ulaşılabilir, anlaşılabilir, net, takip edilebilir hedefler belirleme yöntemidir.
 1 -  S - Specific (Belirli)
 2 - M - Measurable (Ölçülebilir)
@@ -49,4 +51,5 @@ SMART hedefler , projeye ulaşılabilir, anlaşılabilir, net, takip edilebilir 
 Proje ekibi üyelerinin tamamının ne üzerinde çalışılacağı ve net bir şekilde neye çalışılacağını bilir, belirsizlikleri ortadan kaldırır, net ve izlenebilir bir yol haritası çizmeyi sağlar, zaman yönetimini daha başarılı bir şekilde yapmaya yardım eder.
  
   
+
 
