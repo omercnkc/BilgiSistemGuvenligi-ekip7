@@ -1,11 +1,11 @@
-﻿## ğŸš¨ Anomali Senaryosu
+﻿## Anomali Senaryosu
 
-**Konu:** Elektrikli araÃ§ ÅŸarj istasyonlarÄ±nda zaman senkronizasyonu kaymasÄ±.
+**Konu:** Elektrikli araba şarj istasyonlarında zaman senkronizasyonu kayması.
 
-**AÃ§Ä±klama:**
+**Açıklama:**
 
-Senkronizasyon hatasÄ±, blockchain tabanlÄ± ÅŸarj sistemlerinde veri tutarsÄ±zlÄ±ÄŸÄ±na yol aÃ§arak
+Senkronizasyon hatası, blockchain tabanlı şarj sistemlerinde veri tutarsızlığına yol açarak
 
-blok onay gecikmesine ve gÃ¼venlik zafiyetine neden olur.
+blok onay gecikmesine ve güvenlik zafiyetine neden olur.
 
-Bu durum firmware gÃ¼ncellemelerinin yanlÄ±ÅŸ sÄ±rada uygulanmasÄ±na sebep olabilir.
+Bu durum firmware güncellemelerinin yanlış sırada uygulanmasına sebep olabilir.
