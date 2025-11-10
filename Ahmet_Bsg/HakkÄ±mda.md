@@ -1,7 +1,6 @@
-﻿## ğŸ‘¨â€ğŸ’» HakkÄ±mda
+﻿## » Hakkımda
 
-Ben Ahmet YaÅŸarcan, FÄ±rat Ãœniversitesi YazÄ±lÄ±m MÃ¼hendisliÄŸi 3. sÄ±nÄ±f Ã¶ÄŸrencisiyim.
+Ben Ahmet Yasarcan, Fırat Üniversitesi Yazılım Mühendisliğii 3. sınıf öğrencisiyim.
 
-Yapay zekÃ¢, veri bilimi ve web/mobil uygulama geliÅŸtirme alanlarÄ±nda projeler geliÅŸtiriyorum.
+Yapay zeka, veri bilimi ve web/mobil uygulama geliştirme alanlarında projeler geliştiriyorum.
 
-Ekipte veri analizi ve yapay zekÃ¢ kÄ±smÄ±ndan sorumluyum.
