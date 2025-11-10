@@ -1,5 +1,5 @@
 ﻿# Ahmet_Bsg
 
-Bu klasÃ¶r, Bilgi Sistem GÃ¼venliÄŸi dersi kapsamÄ±nda hazÄ±rlanan kiÅŸisel dosyalarÄ± iÃ§erir.
+Bu klasör, Bilgi Sistem Güvenliği dersi kapsamında hazırlanan kişisel dosyaları içerir.
 
-Ä°Ã§erikte kiÅŸisel tanÄ±tÄ±m, proje senaryosu ve SWOT analizi bulunmaktadÄ±r.
+İçerikte kişisel tanıtım, proje senaryosu ve SWOT analizi bulunmaktadır.
