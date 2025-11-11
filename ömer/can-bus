@@ -1,0 +1,6 @@
+Araç içi elektroniklerin(sensürler, kontrol üniteleri, motor, fren vb.) birbirleri ile haberleşmesini sağlayan seri iletişim protokolüdür.
+1980 lerde Bosch taradından geliştirilmiş. 
+Elektirikli araçlarda(şarj yönetimi, batarya izleme), endüstriyel otomasyon sistemlerinde, tarım ve iş makineleri vb yerlerde kullanılır.
+Kablo çokluğundan kurtarır.
+Gerçek zamanlı veri aktarımı sağlar.
+Düşük maliyet ve esnek yapı sunar.
