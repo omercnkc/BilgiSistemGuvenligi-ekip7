@@ -1,5 +1,4 @@
-Anomali Özeti
-Projem, Bilgi Sistemleri ve Güvenliği dersi kapsamında, elektrikli araç şarj istasyonlarının (EVCS) güvenliğini analiz etmeyi amaçlamaktadır.
+Raporum, Bilgi Sistemleri ve Güvenliği dersi kapsamında, elektrikli araç şarj istasyonlarının (EVCS) güvenliğini analiz etmeyi amaçlamaktadır.
 
 1.  Ana Odak ve Makale Temeli
 Projenin temeli, "Anomaly Detection in Electric Vehicle Charging Stations Using Federated Learning" başlıklı güncel bir akademik makaledir.
