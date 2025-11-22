@@ -27,6 +27,8 @@ Logların tutulmasına rağmen, SIEM tabanlı merkezi ve proaktif analiz süreç
 İstasyon yönetim ekranlarında zayıf erişim kontrolü (güçlü parola, 2FA, IP kısıtlaması eksikliği)
 
 Kullanıcıya olağan dışı tüketim için anlık uyarı/bildirim mekanizmasının sınırlı olması
+
+
 🔵 3) Fırsatlar (Opportunities)
 
 “Doğru yatırımlarla bu kriz, avantaja dönüştürülebilir.”
@@ -40,6 +42,8 @@ Gerçek zamanlı anomali tespiti, harcama limiti, anlık bildirim gibi özellikl
 Üniversiteler ve teknoloji firmaları ile anomali tespiti ve siber güvenlik odaklı ortak projeler yürütme fırsatı
 
 Mağduriyetlerin doğru yönetilmesi ile müşteri güvenini ve sadakatini artırma potansiyeli
+
+
 🔴 4) Tehditler (Threats)
 
 “Bu alanda göz ardı edilmemesi gereken dış riskler.”
