@@ -1,0 +1,8 @@
+Birbirinden farklı onlarca şarj istasyonu markası ve modeli bulunmakta ocpp burada bu istasyonları ortak bir dil üzerinde bağlanmasını sağlar. 
+Ocpp şarj noktası ile merkezi yönetim sistemi servisi arasındaki bağlantıyı sağlar.
+Ocpp sayesinde sarj başlatma durdurma, enerji tüketimi, durum takibi ve faturalandırma gibi işlemler yapılabilir. 
+Ocpp 1.6 versiyonu ile json formatındaki yapıya geçmiştir.
+
+zayıf yanları:
+Ortadaki adam saldırısına açık hale getirir sistemi
+Kötü yazılımlar ile şarj kesme vb. işlemler saldırganlar tarafından yapılabilir.

@@ -1,0 +1,256 @@
+# BSG
+
+**Kurumu veya projeyi olumsuz etkileyebilecek dış faktörlerdir.**
+
+- **Artan rekabet**
+- **Ekonomik kriz veya enflasyon**
+- **Yasal düzenlemeler**
+- **Teknolojik değişimlere uyum zorluğu**
+- **Müşteri alışkanlıklarının değişmesi**
+
+# Temel Kavramlar
+
+Bu bölümde sırasıyla OCPP, CAN-Bus, SWOT, SMART kavramları ele alınacaktır.
+
+## OCPP
+
+OCPP (Open Charge Point Protocol), EV şarj istasyonları ile bu şarj istasyonlarını **yöneten** merkezi sistemler (backend / central management systems) arasında ortak**, üreticiden bağımsız** bir iletişim protokolü sağlar.
+
+> Protokolün amacı, farklı marka/üreticilerin ürünlerinin birbirleriyle uyumlu çalışmasını sağlamaktır. (Tek üreticiye bağlılık riskini ortadan kaldırmak)
+> 
+
+[OCPP Hk.](https://www.notion.so/OCPP-Hk-2a1424023db480ae8066e07654dd23bd?pvs=21)
+
+<aside>
+💡
+
+Teknik açıdan, OCPP; şarj istasyonu ile back‐end arasında mesajlaşma yapısını tanımlar.
+
+</aside>
+
+### Mimarisi ve Temel Bileşenleri
+
+OCPP’nin çalıştığı sistem mimarisi genelde şu bileşenleri içerir.
+
+- **Charge Point:** Şarj istasyonu
+- **Central System / Back-end:** Bu istasyonları yöneten yazılım sistemi
+- **İletişim Kanalı:** Charge point ile Backend arasında gerçekleşen mesajlaşma → Genellikle WebSocket/JSON
+- **Mesajlaşma Protokolleri:** Kimlik doğrulama, oturum başlatma/durdurma, enerji ölçümü, firmware güncelleme gibi mesaj tipleri
+- **Akıllı Şarj Yönetimi:** Şebeke üzerindeki yükü dengeleme.
+
+---
+
+### Teknik Detaylar
+
+1. **İletişim ve Mesajlaşma**
+    - OCPP mesajları şarj istasyonundan(CP) merkezi sisteme(Backend) ya da merkezden istasyona gönderilir.
+    - Örneğin bir şarj oturumu başlatıldığında: **Authorize**, ardından **StartTransaction**, şarjın sonunda **StopTransaction** gibi mesajlar iletilir.
+    - Güvenlik: **WebSocket** üzerinden TLS bağlantısı önerilir. OCPP 2.x ile birlikte güvenlik hem daha güçlü hem daha detaylı olarak tanımlanmıştır.
+
+2.**Uygulama Senaryoları**
+
+- Bir şarj operatörü, farklı markalardan şarj istasyonları kurarak hepsini tek bir yazılım platformunda yönetebilir.
+- Şarj istasyonundaki hata durumu (örneğin terminallerden biri arızalandı) otomatik mesaj ile merkeze bildirilir ve uzaktan müdahale edilebilir.
+- Enerji maliyetlerinin yüksek olduğu saatlerde şarj süresi ya da gücü akıllı şekilde sınırlanabilir.
+
+---
+
+## CAN-Bus (Controller Area Network)
+
+CAN-Bus, 1980’lerde BOSCH tarafından geliştirilen bir seri iletişim protokolü ve fiziksel iletişim standardıdır. **Araç içindeki elektronik kontrol ünitelerinin (ECU) birbirleriyle doğrudan, yüksek güvenilirlikle ve tek bir merkez bilgisaayara ihtiyaç duymadan iletişim kurmasını sağlar.** Mesaj tabanlıdır. Ağdaki her düğüm(node) mesaj yayınlayabilir ve tüm diğer düğümler bu mesajı alabilir.
+
+### Mimarisi ve Katmanları
+
+   **Fiziksel Katman;**
+
+- İki telli, genellikle bükümlü çift (twisted pair) kablo kullanılır. Bu sayede diferansiyel sinyalizasyon sağlanır; gürültüler iptal edilir.
+
+[   **Diğer katmanlar;**](https://www.notion.so/Di-er-katmanlar-2a1424023db48018810df7c54fa56990?pvs=21)
+
+---
+
+### Versiyonları
+
+- **CAN 2.0**: Standart format; 11-bit (Standard) ve 29-bit (Extended) ID seçenekleri. Veri alanı maksimum 8 bayttır.
+- **CAN FD (Flexible Data-Rate)**: Daha yüksek veri oranı ve daha büyük veri alanı (örneğin 64 bayt) destekler. Eski CAN cihazlarıyla uyumlu çalışabilir.
+- **CAN XL**: Daha yeni bir versiyon olup daha yüksek bant genişliği, daha büyük veri alanları ile Ethernet gibi sistemlerle entegrasyon hedefliyor.
+
+---
+
+### Avantajları
+
+1. **Yüksek Güvenilirlik:** Araç gibi gürültülü ortamlar için tasarlanmış olup diferansiyel sinyal ile elektromanyetik parazitlere karşı dayanıklıdır.
+2. **Gerçek Zamanlı İletişim:** Arbitraj mekanizması sayesinde önemli mesajlar hızla iletilebilir, öncelikli olarak işlenebilir.
+
+---
+
+### Dikkat Edilecek Hususlar
+
+- Ağ büyüklüğü ve hat uzunluğu sınırlamaları: Bus hattı uzadıkça gecikmeler, yansımalar, sinyal zayıflamaları gibi sorunlar ortaya çıkabilir. Tasarımda hat uzunluğu, kablo tipi ve terminasyon önemli.
+- Güvenlik eksikleri: Protokol başlangıçta şifreleme, kimlik doğrulama gibi güvenlik önlemlerini standart olarak içermiyor; bu da özellikle araç siber güvenliği açısından risk oluşturabiliyor.
+- Tek kanal olması ve paylaşılması: Tüm düğümler aynı hattı paylaştığından aşırı trafik, yüksek öncelikli mesajların gecikmesine yol açabilir. Mesaj öncelikleri iyi tasarlanmalı.
+
+## CAN-Bus ve OCPP Arasındaki İlişki
+
+**CAN-Bus** ve **OCPP** (Open Charge Point Protocol) aslında **farklı katmanlarda çalışan**, ama **elektrikli araç şarj sistemlerinde birbirini tamamlayan** iki teknolojidir.
+
+| Özellik | CAN-Bus | OCPP |
+| --- | --- | --- |
+| **Protokol Türü** | Düşük seviye (field-bus) iletişim protokolü | Uygulama / ağ seviyesi protokolü |
+| **İletişim Ortamı** | Genelde **araç içi** veya donanım bileşenleri arası | **Şarj istasyonu ile merkez sistem** arasında (internet / IP tabanlı) |
+| **Fiziksel Katman** | İki telli diferansiyel hat (CAN_H, CAN_L) | TCP/IP, WebSocket, JSON veya SOAP üzerinden |
+| **Amaç** | Sensör, motor, batarya, inverter, BMS, ECU vb. donanımların iletişimi | Şarj istasyonunun bulut veya yönetim sistemiyle bilgi alışverişi |
+| **Tipik Veri** | Akım, voltaj, sıcaklık, hata kodları gibi düşük seviye veriler | Şarj oturumları, kimlik doğrulama, ödeme, uzaktan kontrol bilgileri |
+
+Elektrikli araç (EV) şarj ekosisteminde bu iki protokol **farklı ama tamamlayıcı** görevler üstlenir.
+
+- **OCPP**, şarj istasyonu ile **bulut platformu / operatör merkezi** arasında haberleşir.
+    
+    Örneğin:
+    
+    - “Bu araç kim?” (RFID kimlik doğrulama)
+    - “Şarj başlatıldı mı?”
+    - “Kaç kWh enerji aktarıldı?”
+    - “Şarj oturumunu sonlandır” gibi yüksek seviye komutlar taşır.
+- **CAN-Bus** ise şarj istasyonu içindeki **donanımlar** arasında veya araç ile şarj istasyonu arasındaki **düşük seviye iletişimi** sağlar.
+    
+    Örneğin:
+    
+    - Batarya yönetim sistemi voltaj/sıcaklık verilerini yollar.
+    - Şarj modülü çıkış akımı sınırını ayarlar.
+    - Güç elektroniği, sensörler ve kontrol üniteleri senkronize edilir.
+
+---
+
+## CAN-Bus ve OCPP’nin Etkileşimi
+
+Gerçek bir **şarj istasyonu mimarisinde** bu iki protokol genellikle şu şekilde birbirine bağlanır.
+
+1. **CAN-Bus katmanı**:
+    
+    Şarj istasyonundaki mikrodenetleyici, BMS, DC/DC dönüştürücü, kontaktör ve akım sensörleri gibi bileşenler CAN-Bus üzerinden veri alışverişi yapar.
+    
+    Örneğin:
+    
+    - BMS diyor ki: *“Batarya 400 V, 80 A çekebilir.”*
+    - Güç modülü diyor ki: *“400 V sağlayabiliyorum.”*
+2. **Yerel kontrolör / gateway**:
+    
+    Bu kontrolcü (charge controller), CAN-Bus’tan gelen teknik verileri toplar ve OCPP sunucusuna raporlar.
+    
+    Örneğin:
+    
+    - CAN verilerini analiz edip OCPP mesajı oluşturur:
+        
+        → `MeterValues` (ölçülen enerji miktarı)
+        
+        → `StatusNotification` (istasyonun durumu)
+        
+        → `FirmwareStatusNotification` (yazılım güncellemesi)
+        
+3. **OCPP katmanı**:
+    
+    Bu veriler WebSocket üzerinden merkez sisteme (örneğin bir enerji şirketinin bulutu) gönderilir.
+    
+    Merkezi sistem, bu bilgilere göre şarj sürecini izler, ödeme başlatır, hata raporlarını toplar.
+    
+
+---
+
+## SWOT Nedir?
+
+SWOT → ***S***trengths, ***W***eaknesses, ***O***pportunities, ***T***hreats
+
+### Strengths
+
+Kurumun veya kişinin rakiplerine göre avantaj sağladığı alanlardır.
+
+- Yüksek teknik bilgi birikimi
+- Güçlü ekip ve liderlik
+- Marka bilinirliği
+- Finansal güç
+- Yüksek müşteri memnuniyeti
+
+### Weaknesses
+
+Kuruluşun veya projenin geliştirilmesi gereken noktalarıdır.
+
+- Yetersiz insan kaynağı
+- Eski teknolojik altyapı
+- Zayıf iletişim ya da organizasyon
+- Kısıtlı bütçe
+- Yeni pazarlara ulaşamama
+
+### Opportunities
+
+Dış çevrede oluşan ve kurumun lehine kullanabileceği durumlardır.
+
+- Yeni teknolojilerin gelişmesi
+- Devlet destekleri ve teşvikler
+- Artan pazar talebi
+- Rakiplerin zayıflaması
+- Uluslararası iş birliği imkanları
+
+### Threats
+
+Kurumu veya projeyi olumsuz etkileyebilecek dış faktörlerdir.
+
+- Artan rekabet
+- Ekonomik kriz veya enflasyon
+- Yasal düzenlemeler
+- Teknolojik değişimlere uyum zorluğu
+- Müşteri alışkanlıklarının değişmesi
+
+---
+
+### SWOT Analizinin Amaçları
+
+- Mevcut durumu net görmek
+- Stratejik kararları bilinçli vermek
+- Güçlü yönleri koruyup zayıf yönleri iyileştirmek
+- Fırsatları değerlendirip tehditlere karşı önlem almak
+
+---
+
+## Smart Hedefler
+
+**SMART → *S***pecific(Belirli), ***M***easurable(Ölçülebilir), ***A***chievable(Ulaşılabilir), ***R***ealistic(Gerçekçi), ***T***ime-bound(Zaman sınırlı)
+
+### Specific
+
+Hedef net, somut ve açık olmalıdır.
+
+### Measurable
+
+Başarının ölçülmesini sağlayacak sayısal kriterler eklenmelidir. Böylece hedefe ulaşıp ulaşmadığınızı değerlendirebilirsiniz.
+
+### Achievable
+
+Belirlenen hedef, mevcut kaynaklar ve yeteneklerle gerçekçi olarak başarılabilir olmalıdır. Çok büyük veya olanaksız hedefler motivasyonu düşürür.
+
+### Realistic
+
+Hedef, kurumun veya bireyin genel vizyonu ve amaçlarıyla uyumlu olmalıdır. Yani “neden bu hedefi seçtiğini” açıklayabilmelisiniz.
+
+### Time-Bound
+
+Her hedefin bir tamamlanma süresi olmalıdır. Zaman sınırı, odaklanmayı ve planlı ilerlemeyi sağlar.
+
+### SMART Modeline Göre Hazırlanmış Örnek Hedef
+
+| Kriter | Açıklama |
+| --- | --- |
+| **S** | Scrapy kullanarak akademik makale verilerini çekmek |
+| **M** | En az 10.000 makale başlığı ve 5000 yazar bilgisi elde etmek |
+| **A** | Mevcut Python bilgisi ve Narveri’nin veri altyapısı ile ulaşılabilir |
+| **R** | İntihal.net’in veri analiz kapasitesine katkı sağlar |
+| **T** | 30 günlük staj süresi içinde tamamlanacak |
+
+### SMART Yönteminin Faydaları
+
+- Hedefleri belirsizlikten kurtarır
+- Ekibi motive eder ve ölçülebilir sonuçlar üretir
+- Planlama, değerlendirme ve raporlama süreçlerini kolaylaştırır
+- Kısa vadeli adımlarla uzun vadeli vizyona ulaşmayı sağlar.
+
+---

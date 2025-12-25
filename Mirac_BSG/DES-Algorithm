@@ -1,0 +1,31 @@
+# DES Algorithm (Data Encryption Standard)
+
+DES → IBM tarafından geliştirildi. (1970’ler)
+
+- Simetrik bir blok şifreleme algoritması → Simetrik olması = şifreleme ve şifre çözme için aynı anahtarın kullanılması
+- Veriyi 64 bit’lik parçalara bölerek şifreler. Her 8. bit hata kontrolü → Efektif anahtar boyutu → 56 BIT
+- DES, şifreleme sırasında veriyi defalarca karıştırıp yerini değiştiren bir **feistel yapısı** kullanır.
+
+→ DES GÜNÜMÜZDE GÜVENSİZDİR. 56-bit anahtar modern bilgisayarlar tarafından kaba kuvvetle çok kısa sürede kırılabilir.
+
+Bunun yerine AES veya DES’in 3 kez uygulanmış hali 3DES kullanılır.
+
+> DES Algoritması boşluk kabul etmez. Veriyi 8-bitlik gruplar halinde şifreler. Kutu tamamen dolmalı.
+> 
+
+## Anahtar Seçimi
+
+- 8 byte olmalı.
+
+> 8.bit’ler çöpe gider. → hata kontrolü/parity için kullanılır. → Anahtardaki karakterlerin son bitlerini değişince şifreleme sonucu değişmez.
+> 
+
+## Yasaklı Anahtarlar
+
+‘Teorik olarak her şeyi seçebilirsiniz ama kriptografik olarak kullanmamanız gereken "Zayıf Anahtarlar" (Weak Keys) vardır. Bu anahtarlar şifrelemeyi çok kolay kırılabilir hale getirir.
+
+- **Tüm bitleri 0 olan anahtar:** `0000000000000000` (Hex)
+- **Tüm bitleri 1 olan anahtar:** `FFFFFFFFFFFFFFFF` (Hex)
+- **Yarısı 0, yarısı 1 olan belirli desenler.**
+
+Bu anahtarlar kullanıldığında şifreleme işlemi güvenlik özelliğini yitirir (örneğin şifrelenmiş veriyi tekrar şifrelediğinizde orijinal verinin çıkması gibi zafiyetler oluşur).’
