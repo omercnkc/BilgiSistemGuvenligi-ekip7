@@ -1,0 +1,12 @@
+EVCS Anomali Simülasyonu: SMART Analizi Değerlendirmesi
+Bu çalışma kapsamında gerçekleştirilen "Resource Exhaustion" (Kaynak Tüketimi) saldırı simülasyonu, projenin başarısını ve etki alanını belirlemek amacıyla SMART (Specific, Measurable, Achievable, Relevant, Time-bound) kriterlerine göre aşağıda detaylandırılmıştır:
+
+Specific (Belirli): Çalışmanın hedefi net bir şekilde tanımlanmıştır. Test süreci, Elektrikli Araç Şarj Yönetim Sistemi'nin (CSMS) /vulnerable/ddos-target API uç noktasını hedef almıştır. Kullanılan yöntem, requests_count parametresinin manipüle edilerek sunucuya, kapasitesinin üzerinde işlem yükü bindirilmesidir. Bu amaçla, Python tabanlı ve çoklu iş parçacığı (multi-threading) yeteneğine sahip özel bir saldırı scripti geliştirilmiştir.
+
+Measurable (Ölçülebilir): Saldırının başarısı somut metriklerle ölçülmüştür. Saldırı öncesinde HTTP 200 OK yanıtı veren ve milisaniyeler içinde cevap dönen sistemin, saldırı başlatıldıktan sonra yanıt sürelerinin (latency) katlanarak arttığı gözlemlenmiştir. Nihai başarı ölçütü olarak, sunucunun gelen isteklere cevap veremeyip Timeout (Zaman Aşımı) ve Connection Refused (Bağlantı Reddedildi) hataları üretmesi kayıt altına alınmıştır.
+
+Achievable (Ulaşılabilir): Simülasyon, gerçekçi ve uygulanabilir bir senaryo üzerine kurgulanmıştır. Devasa bir dağıtık botnet ağına ihtiyaç duyulmadan, yerel geliştirme ortamında (Localhost) standart bir donanım ile gerçekleştirilmiştir. Bu durum, yazılım katmanındaki basit bir mantık hatasının (Rate Limiting eksikliği), karmaşık saldırı araçlarına gerek kalmadan sistemi çökertmek için yeterli olduğunu kanıtlamıştır.
+
+Relevant (İlgili): Bu test, OCPP (Open Charge Point Protocol) tabanlı şarj ağlarının siber güvenliği için hayati önem taşıyan "Erişilebilirlik" (Availability) ilkesiyle doğrudan ilişkilidir. Merkezi yönetim sisteminin devre dışı kalması; gerçek dünyada şarj işlemlerinin başlatılamaması, ödeme alınamaması ve şebeke yönetiminin kaybedilmesi gibi kritik operasyonel ve finansal sonuçlar doğurmaktadır.
+
+Time-bound (Zamanlı): Simülasyonun etkisi belirli bir zaman dilimi içinde net bir şekilde gözlemlenmiştir. Saldırı scripti çalıştırıldıktan sonraki ilk 3 ila 5 saniye içerisinde sunucu kaynakları (CPU/RAM) satüre olmuş ve hizmet kesintisi başlamıştır. Sistemin yanıt veremez hale gelmesi için uzun süreli bir bekleyişe gerek kalmamış, zafiyetin anlık etkisi doğrulanmıştır.
