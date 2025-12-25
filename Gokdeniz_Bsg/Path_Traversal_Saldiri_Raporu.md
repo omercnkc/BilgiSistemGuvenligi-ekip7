@@ -9,7 +9,7 @@
 | **Kategori** | Firmware/File Access |
 | **Zayıflık Türü** | Path Traversal (Dosya Yolu Manipülasyonu) |
 | **Şiddet** | 🔴 **KRİTİK** |
-| **Test Tarihi** | 2024-12-25 |
+| **Test Tarihi** | 2025-12-25 |
 | **Hedef Sistem** | `https://evcs-backend-samet.onrender.com` |
 
 ---
