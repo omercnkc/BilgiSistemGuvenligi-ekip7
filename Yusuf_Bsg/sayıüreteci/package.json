@@ -1,0 +1,8 @@
+{
+  "name": "kripto_rsu",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "rsu": "node src/rsu_collatz.js"
+  }
+}
